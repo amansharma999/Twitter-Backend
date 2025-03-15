@@ -9,8 +9,7 @@ class TweetService {
     const content = data.content;
     const tags = content
       .match(/#[a-zA-Z0-9_]+/g)
-      .map((tag) => tag.substring(1))
-      .map((tag) => tag.toLowerCase()); //extract hashtags from content and convert them to lowercase
+      .map((tag) => tag.substring(1).toLowerCase()); //extract hashtags from content and convert them to lowercase
     // console.log("Extracted Tags are :",tags);
     const tweet = await this.tweetRepository.create(data);
 
